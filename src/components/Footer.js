@@ -3,35 +3,55 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
-import MenuItem from "@material-ui/core/MenuItem";
-import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
         top: 'auto',
         bottom: 0,
-        backgroundColor: "#1B3A61",
-        display: "grid"
+        backgroundColor: '#1B3A61',
+        display: 'grid',
+    },
+    menuItem: {
+        alignItems: 'flex-start',
+    },
+    link: {
+        flexGrow: 1,
+        marginLeft: 10,
+        color: '#FFFFFF',
+        fontSize: 'small',
+        fontWeight: 20,
+        margin: 5
     },
     title: {
         flexGrow: 1,
         marginLeft: 10,
-        fontSize: "small",
+        fontSize: 'small',
+        color: '#C3C3C3',
+        letterSpacing: 1,
+        fontWeight: 'medium',
     },
     details: {
-        fontSize: "small",
-        marginBottom: 15
+        fontSize: 'small',
+        marginBottom: 15,
+        color: '#FFFFFF',
+        fontWeight: 10,
+    },
+    name: {
+        fontSize: 'small',
+        marginBottom: 15,
+        color: '#FFFFFF'
     },
     logo: {
         paddingTop: 15,
-        width: 70,
-        height: 70,
+        width: 100,
+        height: 100,
     },
     container: {
-        flexDirection: "column",
-        alignItems: "flex-start",
-        alignItems:"baseline",
-        paddingTop: 35
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        paddingTop: 20
     }
 }));
 
@@ -39,25 +59,33 @@ const Footer = () => {
     const classes = useStyles();
     return (
         <AppBar position='fixed' className={classes.appBar} >
-            <MenuItem className={classes.MenuItem}>
+            <ListItem className={classes.menuItem}>
                 <ListItem className={classes.container} >
-                    <Typography variant='h6' className={classes.title}>
+                    <Typography variant='h6' className={classes.name}>
                         South Carolina <br />
                         Revenue and Fiscal Affairs Office
                     </Typography>
-                    <IconButton>
-                        <img alt="logo" src={require('../Assets/Group 262.png')} className={classes.logo} />
-                    </IconButton>
+                    <img alt='logo' src={require('../Assets/Group 262.png')} className={classes.logo} />
                 </ListItem>
                 <ListItem className={classes.container} >
-                    <Typography variant='h6' className={classes.title}>
-                        Privacy Statement <br />
-                        FOIA <br />
-                        Disclosures and Reporting <br />
-                        Report Fraud <br />
-                        Accessibility <br />
+                    <Link variant='h6' className={classes.link}>
+                        Privacy Statement
+                    </Link>
+                    <Link variant='h6' className={classes.link}>
+                        FOIA
+                    </Link>
+                    <Link variant='h6' className={classes.link}>
+                        Disclosures and Reporting
+                    </Link>
+                    <Link variant='h6' className={classes.link}>
+                        Report Fraud
+                    </Link>
+                    <Link variant='h6' className={classes.link}>
+                        Accessibility
+                    </Link>
+                    <Link variant='h6' className={classes.link}>
                         Contact Us
-                    </Typography>
+                    </Link>
                 </ListItem>
                 <ListItem className={classes.container} >
                     <Typography variant='h6' className={classes.title}>
@@ -78,7 +106,7 @@ const Footer = () => {
                         </Typography>
                     </Typography>
                 </ListItem>
-            </MenuItem >
+            </ListItem >
         </AppBar >
     );
 }
