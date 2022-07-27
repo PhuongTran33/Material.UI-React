@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Typography from "@material-ui/core/Typography";
 import Menu from "@material-ui/icons/Menu";
 import Search from "@material-ui/icons/Search";
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -15,9 +16,8 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: 0,
         paddingRight: 0,
     },
-    toolbarMenu: {
-        marginLeft: "20%",
-        paddingRight: 0,
+    container: {
+        justifyContent: "flex-end"
     },
     button: {
         backgroundColor: "#3068AD",
@@ -25,11 +25,13 @@ const useStyles = makeStyles(theme => ({
         height: 90,
         borderRadius: "0px",
         color: "#FFFFFF",
+        '&:hover': {
+            backgroundColor: "#225089",
+        }
     },
     label: {
         flexDirection: "column",
         fontSize: 10,
-        fontWeight: 2
     },
     logo: {
         width: 70,
@@ -44,15 +46,12 @@ const useStyles = makeStyles(theme => ({
         fontSize: "medium",
         fontWeight: "bold",
         paddingLeft: 15,
+        minWidth: "fit-content"
     },
     header2: {
         color: "#1B3A61",
         fontSize: "small",
         fontStyle: "italic",
-
-    },
-    menuItem: {
-        justify: "flex-end"
     },
     title: {
         flexGrow: 1,
@@ -63,7 +62,8 @@ const useStyles = makeStyles(theme => ({
     search: {
         fill: "#0074C1",
         border: "1px solid #0074C1",
-        borderRadius: "2px"
+        borderRadius: "2px",
+        padding: "5px",
     }
 }));
 
@@ -73,10 +73,7 @@ const Header = () => {
     return (
         <AppBar position='fixed' className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
-                <IconButton classes={{ root: classes.button, label: classes.label }}
-                    variant="raised"
-                    color="primary"
-                    disableRipple={true}>
+                <IconButton classes={{ root: classes.button, label: classes.label }} >
                     <Menu className={classes.menuButton} >Menu</Menu>
                     MENU
                 </IconButton>
@@ -88,26 +85,26 @@ const Header = () => {
                         Tranforming data into solutions for South Carolina
                     </Typography>
                 </Typography>
-                <Toolbar className={classes.toolbarMenu}>
-                    <MenuItem className={classes.MenuItem}>
+                <ListItem className={classes.container}>
+                    <MenuItem>
                         <Typography variant='h6' className={classes.title}>
                             ABOUT US
                         </Typography>
                     </MenuItem>
-                    <MenuItem className={classes.MenuItem}>
+                    <MenuItem>
                         <Typography variant='h6' className={classes.title}>
                             EVENTS
                         </Typography>
                     </MenuItem>
-                    <MenuItem className={classes.MenuItem}>
+                    <MenuItem>
                         <Typography variant='h6' className={classes.title}>
                             BOARDS & COMMITTEES
                         </Typography>
                     </MenuItem>
-                    <MenuItem className={classes.MenuItem}>
+                    <MenuItem>
                         <Search className={classes.search} />
                     </MenuItem>
-                </Toolbar>
+                </ListItem>
             </Toolbar>
         </AppBar>
     );
