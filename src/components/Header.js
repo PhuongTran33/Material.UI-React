@@ -1,16 +1,21 @@
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Typography from '@material-ui/core/Typography';
+import SearchBar from './SearchBar';
+import MenuNav from "./MenuNav";
 import Menu from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import Search from '@material-ui/icons/Search';
 import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
         backgroundColor: '#FFFFFF',
+        height: '90px'
     },
     toolbar: {
         paddingLeft: 0,
@@ -68,18 +73,33 @@ const useStyles = makeStyles(theme => ({
         border: '1px solid #0074C1',
         borderRadius: '2px',
         padding: '5px',
+    },
+    searchClick: {
+        fill: '#FFFFFF',
+        backgroundColor: '#0074C1',
+        borderRadius: '2px',
+        padding: '5px',
     }
 }));
 
 const Header = () => {
     const classes = useStyles();
+    const [isSearch, setSearch] = useState(false);
+    const [isOpen, setOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const handleSearch = () => {
+        setSearch(!isSearch);
+    };
+    const handleMenu = () => {
+        setOpen(!isOpen);
+    };
+    return (<>
 
-    return (
         <AppBar position='fixed' className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
-                <IconButton classes={{ root: classes.button, label: classes.label }} >
-                    <Menu className={classes.menuButton} />
-                    MENU
+                <IconButton onClick={handleMenu} classes={{ root: classes.button, label: classes.label }} >
+                    {isOpen ? <CloseIcon className={classes.menuButton} /> : <Menu className={classes.menuButton} />}
+                    {isOpen ? 'CLOSE' : 'MENU'}
                 </IconButton>
                 <img alt='logo' src={require('../Assets/Logo.png')} className={classes.logo} />
                 <Typography variant='h6' className={classes.header1}>
@@ -106,11 +126,16 @@ const Header = () => {
                         </Typography>
                     </MenuItem>
                     <MenuItem>
-                        <Search className={classes.search} />
+                        <Search onClick={handleSearch} className={isSearch ? classes.searchClick : classes.search} />
                     </MenuItem>
                 </ListItem>
             </Toolbar>
+            {isSearch &&
+                <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />}
+            {isOpen &&
+                <MenuNav />}
         </AppBar>
+    </>
     );
 }
 

@@ -30,7 +30,6 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(15),
         color: '#FFFFFF',
         textAlign: 'center',
-        backgroundSize: 'cover',
         fontSize: 'large',
     },
     intro: {
@@ -522,7 +521,7 @@ const MainContent = () => {
                 </ListItem >
             </div>
             <div >
-                <Typography variant='h8' className={classes.top}>
+                <Typography variant='body1' className={classes.top}>
                     Back to Top
                     <IconButton onClick={scrollUp} className={classes.arrowUp}>
                         <KeyboardArrowUpIcon />
