@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import ListItem from '@material-ui/core/ListItem';
 import Link from '@material-ui/core/Link';
 
@@ -9,7 +8,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         backgroundColor: '#FFFFFF',
         marginTop: 90,
-        color: '#333333',
+        color: '#000000',
         display: 'flex',
         width: '100%',
         borderBottom: '8px solid #1B3A61'
@@ -28,8 +27,17 @@ const useStyles = makeStyles(theme => ({
     menuItem: {
         fontWeight: 'bold',
         justifyContent: 'center',
+        cursor: 'pointer',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
     },
     menuList: {
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        backgroundColor: '#E1E5EA',
+    },
+    list: {
         flexDirection: 'column',
         alignItems: 'flex-start',
     },
@@ -37,13 +45,15 @@ const useStyles = makeStyles(theme => ({
         color: '#1B3A61',
         fontWeight: 'bold',
         marginBottom: '10px',
-        marginTop: '10px'
+        marginTop: '10px',
+        cursor: 'pointer'
     },
     details: {
-        color: '#333333',
+        color: '#000000',
         fontFamily: 'Open Sans',
         fontSize: '15px',
-        marginBottom: '5px'
+        marginBottom: '5px',
+        cursor: 'pointer'
     }
 }));
 const MenuNav = () => {
@@ -71,10 +81,8 @@ const MenuNav = () => {
                     <ListItem className={classes.menuItem}>
                         Board & Committees
                     </ListItem>
-                    <hr className={classes.line} />
                 </ListItem>
-
-                <ListItem className={classes.menuList}>
+                <ListItem className={classes.list}>
                     <Link className={classes.title}>
                         DATA & RESEARCH
                     </Link>
@@ -117,7 +125,7 @@ const MenuNav = () => {
                         Forms
                     </Link>
                 </ListItem>
-                <ListItem className={classes.menuList}>
+                <ListItem className={classes.list}>
                     <Link className={classes.title}>
                         GEOGRAPHY & MAPPING
                     </Link>
@@ -142,7 +150,7 @@ const MenuNav = () => {
                         Statewide Aerial Imagery
                     </Link>
                 </ListItem>
-                <ListItem className={classes.menuList}>
+                <ListItem className={classes.list}>
                     <Link className={classes.title}>
                         PROGRAMS & SERVICES
                     </Link>

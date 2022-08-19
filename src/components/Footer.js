@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
-import MenuItem from '@material-ui/core/MenuItem';
 import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles(theme => ({
@@ -22,7 +21,8 @@ const useStyles = makeStyles(theme => ({
         color: '#FFFFFF',
         fontSize: 'small',
         fontWeight: 20,
-        margin: 5
+        margin: 5,
+        cursor: 'pointer'
     },
     title: {
         flexGrow: 1,

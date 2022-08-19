@@ -4,13 +4,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
+import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
+import Menu from '@material-ui/icons/Menu';
+import Search from '@material-ui/icons/Search';
+import CloseIcon from '@material-ui/icons/Close';
 import SearchBar from './SearchBar';
 import MenuNav from "./MenuNav";
-import Menu from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
-import Search from '@material-ui/icons/Search';
-import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -32,18 +32,28 @@ const useStyles = makeStyles(theme => ({
         color: '#FFFFFF',
         '&:hover': {
             backgroundColor: '#225089',
+        },
+        '&:focus': {
+            backgroundColor: '#1B3A61',
         }
     },
     label: {
         flexDirection: 'column',
         fontSize: 'xx-small',
         fontWeight: 5,
-        letterSpacing: 1
+        letterSpacing: 1,
     },
     logo: {
         width: 70,
         height: 70,
-        paddingLeft: 25,
+        paddingLeft: 15,
+        cursor: 'pointer',
+        ':hover': {
+            opacity: 0.5,
+        },
+        ':focus': {
+            opacity: 1,
+        },
     },
     menuButton: {
         fontSize: 43,
@@ -69,14 +79,22 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'Open Sans'
     },
     search: {
-        fill: '#0074C1',
-        border: '1px solid #0074C1',
+        fill: '#3068AD',
+        border: '1px solid #3068AD',
         borderRadius: '2px',
         padding: '5px',
+        '&:hover': {
+            backgroundColor: '#3068AD',
+            fill: '#FFFFFF',
+        },
+        '&:focus': {
+            backgroundColor: '#1B3A61',
+            fill: '#FFFFFF',
+        }
     },
     searchClick: {
         fill: '#FFFFFF',
-        backgroundColor: '#0074C1',
+        backgroundColor: '#3068AD',
         borderRadius: '2px',
         padding: '5px',
     }
@@ -101,7 +119,7 @@ const Header = () => {
                     {isOpen ? <CloseIcon className={classes.menuButton} /> : <Menu className={classes.menuButton} />}
                     {isOpen ? 'CLOSE' : 'MENU'}
                 </IconButton>
-                <img alt='logo' src={require('../Assets/Logo.png')} className={classes.logo} />
+                <img src={require('../Assets/Logo.png')} className={classes.logo} />
                 <Typography variant='h6' className={classes.header1}>
                     SOUTH CAROLINA <br />
                     REVENUE AND FISCAL AFFAIRS OFFICE

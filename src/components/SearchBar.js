@@ -7,7 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles(theme => ({
     searchButton: {
         color: '#FFFFFF',
-        backgroundColor: '#0074C1',
+        backgroundColor: '#3068AD',
         borderRadius: '0px',
         minWidth: 'fit-content',
         fontSize: 'small',
@@ -15,6 +15,12 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: 15,
         paddingRight: 15,
         border: '1px solid #FFFFFF',
+        '&:hover': {
+            backgroundColor: '#225089',
+        },
+        '&:focus': {
+            backgroundColor: '#1B3A61',
+        }
     },
     textField: {
         width: 275,
@@ -28,7 +34,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         alignSelf: 'flex-end',
         padding: 15,
-        backgroundColor: '#0074C1',
+        backgroundColor: '#3068AD',
         marginRight: 32,
         marginTop: 60
     }

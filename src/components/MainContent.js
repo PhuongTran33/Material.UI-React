@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
+import MenuItem from '@material-ui/core/MenuItem';
 import ListItem from '@material-ui/core/ListItem';
 import Link from '@material-ui/core/Link';
-import MenuItem from '@material-ui/core/MenuItem';
+import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import Search from '@material-ui/icons/Search';
 import LocationOnIcon from '@material-ui/icons/LocationOnOutlined';
 import AccessTimeOutlinedIcon from '@material-ui/icons/AccessTimeOutlined';
@@ -16,7 +17,6 @@ import { ReactComponent as DataSvg } from '../Assets/Data-Research-Icon.svg'
 import { ReactComponent as GeographySvg } from '../Assets/Geography-Icon.svg'
 import { ReactComponent as LegislativeSvg } from '../Assets/Legislative-Icon.svg'
 import { ReactComponent as ProgramsSvg } from '../Assets/Programs-Icon.svg'
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: 25,
         color: '#35B0CB',
         textDecoration: 'underline',
-
+        cursor: 'pointer'
     },
     container: {
         width: '100%',
@@ -118,6 +118,12 @@ const useStyles = makeStyles(theme => ({
         minWidth: 'fit-content',
         width: 100,
         margin: '0 0 0 7px ',
+        '&:hover': {
+            backgroundColor: '#225089',
+        },
+        '&:focus': {
+            backgroundColor: '#1B3A61',
+        }
     },
     searchLabel: {
         fontSize: 'x-small',
@@ -140,12 +146,18 @@ const useStyles = makeStyles(theme => ({
     },
     button: {
         color: '#FFFFFF',
-        backgroundColor: '#0074C1',
+        backgroundColor: '#3068AD',
         minWidth: 'fit-content',
         fontSize: 'small',
         fontWeight: 2,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        '&:hover': {
+            backgroundColor: '#225089',
+        },
+        '&:focus': {
+            backgroundColor: '#1B3A61',
+        }
     },
     status: {
         backgroundColor: '#666666',
